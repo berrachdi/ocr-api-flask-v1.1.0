@@ -1,0 +1,54 @@
+openapi: 3.0.0
+info:
+  title: OCR Engine API
+  description: This API for OCE Engine service
+  version: 0.1.9
+servers:
+  - url: /
+
+paths:
+   /file_upload:
+     post:
+       summary: Uploads your resume.
+      
+       consumes:
+         - multipart/form-data
+       parameters:
+         - in: formData
+           name: file
+           type: file
+           required: true
+           description: The file to upload.
+       responses:
+          201:
+            description: A user object.
+            content:
+             application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    format: int64
+                    example: 4
+                  fullName:
+                    type: string
+                    example: Berrachdi Mohamed
+                  formation:
+                    type: string
+                    exemple: Master degree in English
+                  expertise: 
+                    type: string
+                    exemple: teacher in ABC school for two years
+                  email:
+                    type: string
+                    exemple: bexemple@um5.com
+                  phone:
+                    type: string
+                    exemple: 0767689898
+                  skills:
+                    type: string
+                    exemple: teaching, communication, languages skills
+   
+         
+
